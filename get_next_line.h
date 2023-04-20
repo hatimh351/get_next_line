@@ -11,14 +11,17 @@
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
-#include <unistd.h>
-#include <stdlib.h>
+# define GET_NEXT_LINE_H
+# include <unistd.h>
+# include <stdlib.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin_line(char *s1, char *s2);
 int		check_new_line(char *str);
 char	*ft_strdup(char *s1);
-char *get_next_line(int fd);
+char	*get_next_line(int fd);
 char	*go_new_line(char *str);
 
 #endif

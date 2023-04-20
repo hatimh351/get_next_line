@@ -15,7 +15,7 @@
 int	check_new_line(char *str)
 {
 	size_t	i;
-	
+
 	if (str == NULL)
 		return (0);
 	i = 0;
@@ -28,7 +28,7 @@ int	check_new_line(char *str)
 	return (0);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_line(char *s1, char *s2)
 {
 	size_t	i;
 	char	*p;
@@ -42,10 +42,10 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = 0;
 	while (s2[i])
 		i++;
-	j+=i;
+	j += i;
 	p = malloc(j + 1);
 	if (!p)
-		return (free((s1)),NULL);
+		return (free((s1)), NULL);
 	j = 0;
 	i = 0;
 	while ((s1)[i])
@@ -54,7 +54,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[j])
 		p[i++] = s2[j++];
 	p[i] = '\0';
-	return (free(s1),p);
+	return (free(s1), p);
 }
 
 char	*ft_strdup(char *s1)

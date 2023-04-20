@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "get_next_line.h"
-#include <stdio.h>
 
 char	*get_line(int fd, char *bufr, char **str)
 {
@@ -24,7 +21,7 @@ char	*get_line(int fd, char *bufr, char **str)
 	{
 		i = read(fd, bufr, BUFFER_SIZE);
 		bufr[i] = '\0';
-		*str = ft_strjoin(*str , bufr);
+		*str = ft_strjoin_line(*str, bufr);
 		if (!(*str))
 			return (free(bufr), NULL);
 		if (*(str)[0] == '\0')
@@ -33,13 +30,13 @@ char	*get_line(int fd, char *bufr, char **str)
 	return (free(bufr), *str);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
 	char		*tp;
 	static char	*str;
 	char		*bufr;
 
-	if (BUFFER_SIZE <= 0 || fd < 0 || read(fd,0,0) < 0)
+	if (BUFFER_SIZE <= 0 || fd < 0 || read(fd, 0, 0) < 0)
 		return (0);
 	bufr = malloc(BUFFER_SIZE + 1);
 	if (!bufr)
@@ -50,7 +47,7 @@ char *get_next_line(int fd)
 	if (check_new_line(str) == 0)
 	{
 		tp = str;
-		return (str = 0,tp);
+		return (str = 0, tp);
 	}
 	tp = ft_strdup(go_new_line(str));
 	if (!tp)
